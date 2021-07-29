@@ -1,0 +1,1205 @@
+ansible-playbook [core 2.11.3] 
+  config file = /home/cbeaver-redhat.com/ansible_advanced_openstack_infra/ansible.cfg
+  configured module search path = ['/home/cbeaver-redhat.com/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/cbeaver-redhat.com/openstack-venv/lib64/python3.6/site-packages/ansible
+  ansible collection location = /home/cbeaver-redhat.com/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/cbeaver-redhat.com/openstack-venv/bin/ansible-playbook
+  python version = 3.6.8 (default, Oct 11 2019, 15:04:54) [GCC 8.3.1 20190507 (Red Hat 8.3.1-4)]
+  jinja version = 3.0.1
+  libyaml = True
+Using /home/cbeaver-redhat.com/ansible_advanced_openstack_infra/ansible.cfg as config file
+host_list declined parsing /home/cbeaver-redhat.com/ansible_advanced_openstack_infra/inventory/localhost as it did not pass its verify_file() method
+script declined parsing /home/cbeaver-redhat.com/ansible_advanced_openstack_infra/inventory/localhost as it did not pass its verify_file() method
+auto declined parsing /home/cbeaver-redhat.com/ansible_advanced_openstack_infra/inventory/localhost as it did not pass its verify_file() method
+Parsed /home/cbeaver-redhat.com/ansible_advanced_openstack_infra/inventory/localhost inventory source with ini plugin
+redirecting (type: modules) ansible.builtin.os_server to openstack.cloud.server
+redirecting (type: modules) ansible.builtin.os_floating_ip to openstack.cloud.floating_ip
+redirecting (type: callback) ansible.builtin.yaml to community.general.yaml
+redirecting (type: callback) ansible.builtin.timer to ansible.posix.timer
+redirecting (type: callback) ansible.builtin.profile_tasks to ansible.posix.profile_tasks
+Skipping callback 'default', as we already have a stdout callback.
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+Skipping callback 'yaml', as we already have a stdout callback.
+
+PLAYBOOK: manage-servers.yml ***************************************************
+1 plays in manage-servers.yml
+
+PLAY [Manage OpenStack Servers] ************************************************
+META: ran handlers
+
+TASK [tok.openstack.openstack_manage_servers : Create instances] ***************
+task path: /home/cbeaver-redhat.com/ansible_advanced_openstack_infra/collections/ansible_collections/tok/openstack/roles/openstack_manage_servers/tasks/main.yml:2
+Wednesday 28 July 2021  16:56:16 -0400 (0:00:00.026)       0:00:00.026 ******** 
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: cbeaver-redhat.com
+<localhost> EXEC /bin/sh -c 'echo ~cbeaver-redhat.com && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/cbeaver-redhat.com/.ansible/tmp `"&& mkdir "` echo /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505776.2313323-8986-160001979093835 `" && echo ansible-tmp-1627505776.2313323-8986-160001979093835="` echo /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505776.2313323-8986-160001979093835 `" ) && sleep 0'
+redirecting (type: modules) ansible.builtin.os_server to openstack.cloud.server
+Using module file /home/cbeaver-redhat.com/openstack-venv/lib64/python3.6/site-packages/ansible_collections/openstack/cloud/plugins/modules/server.py
+<localhost> PUT /home/cbeaver-redhat.com/.ansible/tmp/ansible-local-8977chealu4f/tmp988813bo TO /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505776.2313323-8986-160001979093835/AnsiballZ_server.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505776.2313323-8986-160001979093835/ /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505776.2313323-8986-160001979093835/AnsiballZ_server.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505776.2313323-8986-160001979093835/AnsiballZ_server.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505776.2313323-8986-160001979093835/ > /dev/null 2>&1 && sleep 0'
+<localhost> EXEC /bin/sh -c 'echo ~cbeaver-redhat.com && sleep 0'
+ok: [localhost] => (item={'instance_name': 'app1', 'group': 'app_servers', 'deployment': 'dev', 'security_group_name': 'apps', 'image': 'rhel-7.6', 'meta': 'group=app_servers, deployment_name=QA'}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "id": "073d4251-a5f0-4d28-8bda-88a92589accd",
+    "invocation": {
+        "module_args": {
+            "api_timeout": null,
+            "auth": null,
+            "auth_type": null,
+            "auto_ip": true,
+            "availability_zone": null,
+            "boot_from_volume": false,
+            "boot_volume": null,
+            "ca_cert": null,
+            "client_cert": null,
+            "client_key": null,
+            "config_drive": false,
+            "delete_fip": true,
+            "description": null,
+            "flavor": "m2.medium",
+            "flavor_include": null,
+            "flavor_ram": null,
+            "floating_ip_pools": null,
+            "floating_ips": null,
+            "image": "rhel-7.6",
+            "image_exclude": "(deprecated)",
+            "interface": "public",
+            "key_name": "ansible_ssh_key",
+            "meta": {
+                " deployment_name": "QA",
+                "group": "app_servers"
+            },
+            "name": "app1",
+            "network": null,
+            "nics": [
+                {
+                    "net-name": "int_network"
+                }
+            ],
+            "region_name": null,
+            "reuse_ips": true,
+            "scheduler_hints": null,
+            "security_groups": [
+                "apps"
+            ],
+            "state": "present",
+            "terminate_volume": false,
+            "timeout": 180,
+            "userdata": "#!/bin/bash\ncurl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub\ncat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys\n",
+            "validate_certs": null,
+            "volume_size": null,
+            "volumes": [],
+            "wait": false
+        }
+    },
+    "item": {
+        "deployment": "dev",
+        "group": "app_servers",
+        "image": "rhel-7.6",
+        "instance_name": "app1",
+        "meta": "group=app_servers, deployment_name=QA",
+        "security_group_name": "apps"
+    },
+    "openstack": {
+        "OS-DCF:diskConfig": "MANUAL",
+        "OS-EXT-AZ:availability_zone": "nova",
+        "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+        "OS-EXT-SRV-ATTR:hostname": "app1",
+        "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+        "OS-EXT-SRV-ATTR:instance_name": "instance-00000001",
+        "OS-EXT-SRV-ATTR:kernel_id": "",
+        "OS-EXT-SRV-ATTR:launch_index": 0,
+        "OS-EXT-SRV-ATTR:ramdisk_id": "",
+        "OS-EXT-SRV-ATTR:reservation_id": "r-b2buf9e0",
+        "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+        "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "OS-EXT-STS:power_state": 1,
+        "OS-EXT-STS:task_state": null,
+        "OS-EXT-STS:vm_state": "active",
+        "OS-SCH-HNT:scheduler_hints": null,
+        "OS-SRV-USG:launched_at": "2021-07-28T20:43:53.000000",
+        "OS-SRV-USG:terminated_at": null,
+        "accessIPv4": "192.0.2.160",
+        "accessIPv6": "",
+        "addresses": {
+            "int_network": [
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:1f:49:83",
+                    "OS-EXT-IPS:type": "fixed",
+                    "addr": "172.16.0.243",
+                    "version": 4
+                },
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:1f:49:83",
+                    "OS-EXT-IPS:type": "floating",
+                    "addr": "192.0.2.160",
+                    "version": 4
+                }
+            ]
+        },
+        "adminPass": null,
+        "az": "nova",
+        "block_device_mapping": null,
+        "cloud": "openstack",
+        "config_drive": "",
+        "created": "2021-07-28T20:43:22Z",
+        "created_at": "2021-07-28T20:43:22Z",
+        "description": "app1",
+        "disk_config": "MANUAL",
+        "flavor": {
+            "disk": 20,
+            "ephemeral": 0,
+            "extra_specs": {},
+            "name": "m2.medium",
+            "original_name": "m2.medium",
+            "ram": 2048,
+            "swap": 0,
+            "vcpus": 2
+        },
+        "has_config_drive": false,
+        "host": "overcloud-novacompute-0.localdomain",
+        "hostId": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+        "host_id": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+        "host_status": "UP",
+        "hostname": "app1",
+        "hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+        "id": "073d4251-a5f0-4d28-8bda-88a92589accd",
+        "image": {
+            "id": "5b53d35f-cd28-4646-9e6e-82d58971f7e0",
+            "name": "rhel-7.6"
+        },
+        "instance_name": "instance-00000001",
+        "interface_ip": "192.0.2.160",
+        "kernel_id": "",
+        "key_name": "ansible_ssh_key",
+        "launch_index": 0,
+        "launched_at": "2021-07-28T20:43:53.000000",
+        "location": {
+            "cloud": "openstack",
+            "project": {
+                "domain_id": null,
+                "domain_name": null,
+                "id": "4e07f423a12f437388a97a533bb9eef9",
+                "name": "admin"
+            },
+            "region_name": "regionOne",
+            "zone": "nova"
+        },
+        "locked": false,
+        "max_count": null,
+        "metadata": {
+            " deployment_name": "QA",
+            "group": "app_servers"
+        },
+        "min_count": null,
+        "name": "app1",
+        "networks": {},
+        "os-extended-volumes:volumes_attached": [],
+        "personality": null,
+        "power_state": 1,
+        "private_v4": "172.16.0.243",
+        "progress": 0,
+        "project_id": "4e07f423a12f437388a97a533bb9eef9",
+        "properties": {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:hostname": "app1",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:instance_name": "instance-00000001",
+            "OS-EXT-SRV-ATTR:kernel_id": "",
+            "OS-EXT-SRV-ATTR:launch_index": 0,
+            "OS-EXT-SRV-ATTR:ramdisk_id": "",
+            "OS-EXT-SRV-ATTR:reservation_id": "r-b2buf9e0",
+            "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+            "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "OS-EXT-STS:power_state": 1,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "active",
+            "OS-SCH-HNT:scheduler_hints": null,
+            "OS-SRV-USG:launched_at": "2021-07-28T20:43:53.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "host_status": "UP",
+            "locked": false,
+            "max_count": null,
+            "min_count": null,
+            "os-extended-volumes:volumes_attached": [],
+            "trusted_image_certificates": null
+        },
+        "public_v4": "192.0.2.160",
+        "public_v6": "",
+        "ramdisk_id": "",
+        "region": "regionOne",
+        "reservation_id": "r-b2buf9e0",
+        "root_device_name": "/dev/vda",
+        "scheduler_hints": null,
+        "security_groups": [
+            {
+                "description": "ports_open",
+                "id": "1cf8172e-e52e-4d7e-8811-dfff3a7162f7",
+                "location": {
+                    "cloud": "openstack",
+                    "project": {
+                        "domain_id": null,
+                        "domain_name": null,
+                        "id": "4e07f423a12f437388a97a533bb9eef9",
+                        "name": "admin"
+                    },
+                    "region_name": "regionOne",
+                    "zone": null
+                },
+                "name": "apps",
+                "project_id": "4e07f423a12f437388a97a533bb9eef9",
+                "properties": {},
+                "security_group_rules": [
+                    {
+                        "direction": "ingress",
+                        "ethertype": "IPv4",
+                        "group": {},
+                        "id": "21e53c4b-16f8-4d4b-9f48-f036afa41484",
+                        "location": {
+                            "cloud": "openstack",
+                            "project": {
+                                "domain_id": null,
+                                "domain_name": null,
+                                "id": "4e07f423a12f437388a97a533bb9eef9",
+                                "name": "admin"
+                            },
+                            "region_name": "regionOne",
+                            "zone": null
+                        },
+                        "port_range_max": 22,
+                        "port_range_min": 22,
+                        "project_id": "",
+                        "properties": {
+                            "group": {}
+                        },
+                        "protocol": "tcp",
+                        "remote_group_id": null,
+                        "remote_ip_prefix": "0.0.0.0/0",
+                        "security_group_id": "1cf8172e-e52e-4d7e-8811-dfff3a7162f7",
+                        "tenant_id": ""
+                    },
+                    {
+                        "direction": "ingress",
+                        "ethertype": "IPv4",
+                        "group": {},
+                        "id": "7bdb8d81-1a7b-45ef-905f-b3a4ae82522b",
+                        "location": {
+                            "cloud": "openstack",
+                            "project": {
+                                "domain_id": null,
+                                "domain_name": null,
+                                "id": "4e07f423a12f437388a97a533bb9eef9",
+                                "name": "admin"
+                            },
+                            "region_name": "regionOne",
+                            "zone": null
+                        },
+                        "port_range_max": 8080,
+                        "port_range_min": 8080,
+                        "project_id": "",
+                        "properties": {
+                            "group": {}
+                        },
+                        "protocol": "tcp",
+                        "remote_group_id": null,
+                        "remote_ip_prefix": "0.0.0.0/0",
+                        "security_group_id": "1cf8172e-e52e-4d7e-8811-dfff3a7162f7",
+                        "tenant_id": ""
+                    }
+                ],
+                "stateful": true,
+                "tenant_id": "4e07f423a12f437388a97a533bb9eef9"
+            }
+        ],
+        "server_groups": null,
+        "status": "ACTIVE",
+        "tags": [],
+        "task_state": null,
+        "tenant_id": "4e07f423a12f437388a97a533bb9eef9",
+        "terminated_at": null,
+        "trusted_image_certificates": null,
+        "updated": "2021-07-28T20:43:53Z",
+        "user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "user_id": "407c91c92264417aaec09d86164807fd",
+        "vm_state": "active",
+        "volumes": []
+    },
+    "server": {
+        "OS-DCF:diskConfig": "MANUAL",
+        "OS-EXT-AZ:availability_zone": "nova",
+        "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+        "OS-EXT-SRV-ATTR:hostname": "app1",
+        "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+        "OS-EXT-SRV-ATTR:instance_name": "instance-00000001",
+        "OS-EXT-SRV-ATTR:kernel_id": "",
+        "OS-EXT-SRV-ATTR:launch_index": 0,
+        "OS-EXT-SRV-ATTR:ramdisk_id": "",
+        "OS-EXT-SRV-ATTR:reservation_id": "r-b2buf9e0",
+        "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+        "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "OS-EXT-STS:power_state": 1,
+        "OS-EXT-STS:task_state": null,
+        "OS-EXT-STS:vm_state": "active",
+        "OS-SCH-HNT:scheduler_hints": null,
+        "OS-SRV-USG:launched_at": "2021-07-28T20:43:53.000000",
+        "OS-SRV-USG:terminated_at": null,
+        "accessIPv4": "192.0.2.160",
+        "accessIPv6": "",
+        "addresses": {
+            "int_network": [
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:1f:49:83",
+                    "OS-EXT-IPS:type": "fixed",
+                    "addr": "172.16.0.243",
+                    "version": 4
+                },
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:1f:49:83",
+                    "OS-EXT-IPS:type": "floating",
+                    "addr": "192.0.2.160",
+                    "version": 4
+                }
+            ]
+        },
+        "adminPass": null,
+        "az": "nova",
+        "block_device_mapping": null,
+        "cloud": "openstack",
+        "config_drive": "",
+        "created": "2021-07-28T20:43:22Z",
+        "created_at": "2021-07-28T20:43:22Z",
+        "description": "app1",
+        "disk_config": "MANUAL",
+        "flavor": {
+            "disk": 20,
+            "ephemeral": 0,
+            "extra_specs": {},
+            "name": "m2.medium",
+            "original_name": "m2.medium",
+            "ram": 2048,
+            "swap": 0,
+            "vcpus": 2
+        },
+        "has_config_drive": false,
+        "host": "overcloud-novacompute-0.localdomain",
+        "hostId": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+        "host_id": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+        "host_status": "UP",
+        "hostname": "app1",
+        "hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+        "id": "073d4251-a5f0-4d28-8bda-88a92589accd",
+        "image": {
+            "id": "5b53d35f-cd28-4646-9e6e-82d58971f7e0",
+            "name": "rhel-7.6"
+        },
+        "instance_name": "instance-00000001",
+        "interface_ip": "192.0.2.160",
+        "kernel_id": "",
+        "key_name": "ansible_ssh_key",
+        "launch_index": 0,
+        "launched_at": "2021-07-28T20:43:53.000000",
+        "location": {
+            "cloud": "openstack",
+            "project": {
+                "domain_id": null,
+                "domain_name": null,
+                "id": "4e07f423a12f437388a97a533bb9eef9",
+                "name": "admin"
+            },
+            "region_name": "regionOne",
+            "zone": "nova"
+        },
+        "locked": false,
+        "max_count": null,
+        "metadata": {
+            " deployment_name": "QA",
+            "group": "app_servers"
+        },
+        "min_count": null,
+        "name": "app1",
+        "networks": {},
+        "os-extended-volumes:volumes_attached": [],
+        "personality": null,
+        "power_state": 1,
+        "private_v4": "172.16.0.243",
+        "progress": 0,
+        "project_id": "4e07f423a12f437388a97a533bb9eef9",
+        "properties": {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:hostname": "app1",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:instance_name": "instance-00000001",
+            "OS-EXT-SRV-ATTR:kernel_id": "",
+            "OS-EXT-SRV-ATTR:launch_index": 0,
+            "OS-EXT-SRV-ATTR:ramdisk_id": "",
+            "OS-EXT-SRV-ATTR:reservation_id": "r-b2buf9e0",
+            "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+            "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "OS-EXT-STS:power_state": 1,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "active",
+            "OS-SCH-HNT:scheduler_hints": null,
+            "OS-SRV-USG:launched_at": "2021-07-28T20:43:53.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "host_status": "UP",
+            "locked": false,
+            "max_count": null,
+            "min_count": null,
+            "os-extended-volumes:volumes_attached": [],
+            "trusted_image_certificates": null
+        },
+        "public_v4": "192.0.2.160",
+        "public_v6": "",
+        "ramdisk_id": "",
+        "region": "regionOne",
+        "reservation_id": "r-b2buf9e0",
+        "root_device_name": "/dev/vda",
+        "scheduler_hints": null,
+        "security_groups": [
+            {
+                "description": "ports_open",
+                "id": "1cf8172e-e52e-4d7e-8811-dfff3a7162f7",
+                "location": {
+                    "cloud": "openstack",
+                    "project": {
+                        "domain_id": null,
+                        "domain_name": null,
+                        "id": "4e07f423a12f437388a97a533bb9eef9",
+                        "name": "admin"
+                    },
+                    "region_name": "regionOne",
+                    "zone": null
+                },
+                "name": "apps",
+                "project_id": "4e07f423a12f437388a97a533bb9eef9",
+                "properties": {},
+                "security_group_rules": [
+                    {
+                        "direction": "ingress",
+                        "ethertype": "IPv4",
+                        "group": {},
+                        "id": "21e53c4b-16f8-4d4b-9f48-f036afa41484",
+                        "location": {
+                            "cloud": "openstack",
+                            "project": {
+                                "domain_id": null,
+                                "domain_name": null,
+                                "id": "4e07f423a12f437388a97a533bb9eef9",
+                                "name": "admin"
+                            },
+                            "region_name": "regionOne",
+                            "zone": null
+                        },
+                        "port_range_max": 22,
+                        "port_range_min": 22,
+                        "project_id": "",
+                        "properties": {
+                            "group": {}
+                        },
+                        "protocol": "tcp",
+                        "remote_group_id": null,
+                        "remote_ip_prefix": "0.0.0.0/0",
+                        "security_group_id": "1cf8172e-e52e-4d7e-8811-dfff3a7162f7",
+                        "tenant_id": ""
+                    },
+                    {
+                        "direction": "ingress",
+                        "ethertype": "IPv4",
+                        "group": {},
+                        "id": "7bdb8d81-1a7b-45ef-905f-b3a4ae82522b",
+                        "location": {
+                            "cloud": "openstack",
+                            "project": {
+                                "domain_id": null,
+                                "domain_name": null,
+                                "id": "4e07f423a12f437388a97a533bb9eef9",
+                                "name": "admin"
+                            },
+                            "region_name": "regionOne",
+                            "zone": null
+                        },
+                        "port_range_max": 8080,
+                        "port_range_min": 8080,
+                        "project_id": "",
+                        "properties": {
+                            "group": {}
+                        },
+                        "protocol": "tcp",
+                        "remote_group_id": null,
+                        "remote_ip_prefix": "0.0.0.0/0",
+                        "security_group_id": "1cf8172e-e52e-4d7e-8811-dfff3a7162f7",
+                        "tenant_id": ""
+                    }
+                ],
+                "stateful": true,
+                "tenant_id": "4e07f423a12f437388a97a533bb9eef9"
+            }
+        ],
+        "server_groups": null,
+        "status": "ACTIVE",
+        "tags": [],
+        "task_state": null,
+        "tenant_id": "4e07f423a12f437388a97a533bb9eef9",
+        "terminated_at": null,
+        "trusted_image_certificates": null,
+        "updated": "2021-07-28T20:43:53Z",
+        "user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "user_id": "407c91c92264417aaec09d86164807fd",
+        "vm_state": "active",
+        "volumes": []
+    }
+}
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/cbeaver-redhat.com/.ansible/tmp `"&& mkdir "` echo /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816 `" && echo ansible-tmp-1627505779.4413896-8986-186145342776816="` echo /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816 `" ) && sleep 0'
+redirecting (type: modules) ansible.builtin.os_server to openstack.cloud.server
+Using module file /home/cbeaver-redhat.com/openstack-venv/lib64/python3.6/site-packages/ansible_collections/openstack/cloud/plugins/modules/server.py
+<localhost> PUT /home/cbeaver-redhat.com/.ansible/tmp/ansible-local-8977chealu4f/tmpd85c1e4n TO /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816/AnsiballZ_server.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816/ /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816/AnsiballZ_server.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816/AnsiballZ_server.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816/ > /dev/null 2>&1 && sleep 0'
+<localhost> EXEC /bin/sh -c 'echo ~cbeaver-redhat.com && sleep 0'
+The full traceback is:
+Traceback (most recent call last):
+  File "/home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816/AnsiballZ_server.py", line 100, in <module>
+    _ansiballz_main()
+  File "/home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816/AnsiballZ_server.py", line 92, in _ansiballz_main
+    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)
+  File "/home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816/AnsiballZ_server.py", line 41, in invoke_module
+    run_name='__main__', alter_sys=True)
+  File "/usr/lib64/python3.6/runpy.py", line 205, in run_module
+    return _run_module_code(code, init_globals, run_name, mod_spec)
+  File "/usr/lib64/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/usr/lib64/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/tmp/ansible_os_server_payload_ylm6fyjy/ansible_os_server_payload.zip/ansible_collections/openstack/cloud/plugins/modules/server.py", line 805, in <module>
+  File "/tmp/ansible_os_server_payload_ylm6fyjy/ansible_os_server_payload.zip/ansible_collections/openstack/cloud/plugins/modules/server.py", line 801, in main
+  File "/tmp/ansible_os_server_payload_ylm6fyjy/ansible_os_server_payload.zip/ansible_collections/openstack/cloud/plugins/module_utils/openstack.py", line 406, in __call__
+  File "/tmp/ansible_os_server_payload_ylm6fyjy/ansible_os_server_payload.zip/ansible_collections/openstack/cloud/plugins/modules/server.py", line 551, in run
+  File "/tmp/ansible_os_server_payload_ylm6fyjy/ansible_os_server_payload.zip/ansible_collections/openstack/cloud/plugins/modules/server.py", line 602, in _create_server
+  File "/tmp/ansible_os_server_payload_ylm6fyjy/ansible_os_server_payload.zip/ansible_collections/openstack/cloud/plugins/modules/server.py", line 475, in _parse_meta
+ValueError: not enough values to unpack (expected 2, got 1)
+failed: [localhost] (item={'instance_name': 'app2', 'group': 'app_servers', 'deployment': 'dev', 'security_group_name': 'apps', 'image': 'rhel-7.6', 'meta': 'group=app_servers, deployment_name-dev'}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "deployment": "dev",
+        "group": "app_servers",
+        "image": "rhel-7.6",
+        "instance_name": "app2",
+        "meta": "group=app_servers, deployment_name-dev",
+        "security_group_name": "apps"
+    },
+    "module_stderr": "Traceback (most recent call last):\n  File \"/home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816/AnsiballZ_server.py\", line 100, in <module>\n    _ansiballz_main()\n  File \"/home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816/AnsiballZ_server.py\", line 92, in _ansiballz_main\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\n  File \"/home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505779.4413896-8986-186145342776816/AnsiballZ_server.py\", line 41, in invoke_module\n    run_name='__main__', alter_sys=True)\n  File \"/usr/lib64/python3.6/runpy.py\", line 205, in run_module\n    return _run_module_code(code, init_globals, run_name, mod_spec)\n  File \"/usr/lib64/python3.6/runpy.py\", line 96, in _run_module_code\n    mod_name, mod_spec, pkg_name, script_name)\n  File \"/usr/lib64/python3.6/runpy.py\", line 85, in _run_code\n    exec(code, run_globals)\n  File \"/tmp/ansible_os_server_payload_ylm6fyjy/ansible_os_server_payload.zip/ansible_collections/openstack/cloud/plugins/modules/server.py\", line 805, in <module>\n  File \"/tmp/ansible_os_server_payload_ylm6fyjy/ansible_os_server_payload.zip/ansible_collections/openstack/cloud/plugins/modules/server.py\", line 801, in main\n  File \"/tmp/ansible_os_server_payload_ylm6fyjy/ansible_os_server_payload.zip/ansible_collections/openstack/cloud/plugins/module_utils/openstack.py\", line 406, in __call__\n  File \"/tmp/ansible_os_server_payload_ylm6fyjy/ansible_os_server_payload.zip/ansible_collections/openstack/cloud/plugins/modules/server.py\", line 551, in run\n  File \"/tmp/ansible_os_server_payload_ylm6fyjy/ansible_os_server_payload.zip/ansible_collections/openstack/cloud/plugins/modules/server.py\", line 602, in _create_server\n  File \"/tmp/ansible_os_server_payload_ylm6fyjy/ansible_os_server_payload.zip/ansible_collections/openstack/cloud/plugins/modules/server.py\", line 475, in _parse_meta\nValueError: not enough values to unpack (expected 2, got 1)\n",
+    "module_stdout": "",
+    "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error",
+    "rc": 1
+}
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/cbeaver-redhat.com/.ansible/tmp `"&& mkdir "` echo /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505781.9134595-8986-169963159007583 `" && echo ansible-tmp-1627505781.9134595-8986-169963159007583="` echo /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505781.9134595-8986-169963159007583 `" ) && sleep 0'
+redirecting (type: modules) ansible.builtin.os_server to openstack.cloud.server
+Using module file /home/cbeaver-redhat.com/openstack-venv/lib64/python3.6/site-packages/ansible_collections/openstack/cloud/plugins/modules/server.py
+<localhost> PUT /home/cbeaver-redhat.com/.ansible/tmp/ansible-local-8977chealu4f/tmp_tizh4_m TO /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505781.9134595-8986-169963159007583/AnsiballZ_server.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505781.9134595-8986-169963159007583/ /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505781.9134595-8986-169963159007583/AnsiballZ_server.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505781.9134595-8986-169963159007583/AnsiballZ_server.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505781.9134595-8986-169963159007583/ > /dev/null 2>&1 && sleep 0'
+<localhost> EXEC /bin/sh -c 'echo ~cbeaver-redhat.com && sleep 0'
+ok: [localhost] => (item={'instance_name': 'db', 'group': 'database_servers', 'deployment': 'dev', 'security_group_name': 'db', 'image': 'rhel-7.6', 'meta': 'group=database_servers, deployment_name=dev'}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "id": "1a5fedec-cb14-4b6a-8673-414caedcc7ba",
+    "invocation": {
+        "module_args": {
+            "api_timeout": null,
+            "auth": null,
+            "auth_type": null,
+            "auto_ip": true,
+            "availability_zone": null,
+            "boot_from_volume": false,
+            "boot_volume": null,
+            "ca_cert": null,
+            "client_cert": null,
+            "client_key": null,
+            "config_drive": false,
+            "delete_fip": true,
+            "description": null,
+            "flavor": "m2.medium",
+            "flavor_include": null,
+            "flavor_ram": null,
+            "floating_ip_pools": null,
+            "floating_ips": null,
+            "image": "rhel-7.6",
+            "image_exclude": "(deprecated)",
+            "interface": "public",
+            "key_name": "ansible_ssh_key",
+            "meta": {
+                " deployment_name": "dev",
+                "group": "database_servers"
+            },
+            "name": "db",
+            "network": null,
+            "nics": [
+                {
+                    "net-name": "int_network"
+                }
+            ],
+            "region_name": null,
+            "reuse_ips": true,
+            "scheduler_hints": null,
+            "security_groups": [
+                "db"
+            ],
+            "state": "present",
+            "terminate_volume": false,
+            "timeout": 180,
+            "userdata": "#!/bin/bash\ncurl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub\ncat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys\n",
+            "validate_certs": null,
+            "volume_size": null,
+            "volumes": [],
+            "wait": false
+        }
+    },
+    "item": {
+        "deployment": "dev",
+        "group": "database_servers",
+        "image": "rhel-7.6",
+        "instance_name": "db",
+        "meta": "group=database_servers, deployment_name=dev",
+        "security_group_name": "db"
+    },
+    "openstack": {
+        "OS-DCF:diskConfig": "MANUAL",
+        "OS-EXT-AZ:availability_zone": "nova",
+        "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+        "OS-EXT-SRV-ATTR:hostname": "db",
+        "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+        "OS-EXT-SRV-ATTR:instance_name": "instance-00000002",
+        "OS-EXT-SRV-ATTR:kernel_id": "",
+        "OS-EXT-SRV-ATTR:launch_index": 0,
+        "OS-EXT-SRV-ATTR:ramdisk_id": "",
+        "OS-EXT-SRV-ATTR:reservation_id": "r-h47ou9nm",
+        "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+        "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "OS-EXT-STS:power_state": 1,
+        "OS-EXT-STS:task_state": null,
+        "OS-EXT-STS:vm_state": "active",
+        "OS-SCH-HNT:scheduler_hints": null,
+        "OS-SRV-USG:launched_at": "2021-07-28T20:43:54.000000",
+        "OS-SRV-USG:terminated_at": null,
+        "accessIPv4": "192.0.2.159",
+        "accessIPv6": "",
+        "addresses": {
+            "int_network": [
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:ad:d7:34",
+                    "OS-EXT-IPS:type": "fixed",
+                    "addr": "172.16.0.41",
+                    "version": 4
+                },
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:ad:d7:34",
+                    "OS-EXT-IPS:type": "floating",
+                    "addr": "192.0.2.159",
+                    "version": 4
+                }
+            ]
+        },
+        "adminPass": null,
+        "az": "nova",
+        "block_device_mapping": null,
+        "cloud": "openstack",
+        "config_drive": "",
+        "created": "2021-07-28T20:43:38Z",
+        "created_at": "2021-07-28T20:43:38Z",
+        "description": "db",
+        "disk_config": "MANUAL",
+        "flavor": {
+            "disk": 20,
+            "ephemeral": 0,
+            "extra_specs": {},
+            "name": "m2.medium",
+            "original_name": "m2.medium",
+            "ram": 2048,
+            "swap": 0,
+            "vcpus": 2
+        },
+        "has_config_drive": false,
+        "host": "overcloud-novacompute-0.localdomain",
+        "hostId": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+        "host_id": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+        "host_status": "UP",
+        "hostname": "db",
+        "hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+        "id": "1a5fedec-cb14-4b6a-8673-414caedcc7ba",
+        "image": {
+            "id": "5b53d35f-cd28-4646-9e6e-82d58971f7e0",
+            "name": "rhel-7.6"
+        },
+        "instance_name": "instance-00000002",
+        "interface_ip": "192.0.2.159",
+        "kernel_id": "",
+        "key_name": "ansible_ssh_key",
+        "launch_index": 0,
+        "launched_at": "2021-07-28T20:43:54.000000",
+        "location": {
+            "cloud": "openstack",
+            "project": {
+                "domain_id": null,
+                "domain_name": null,
+                "id": "4e07f423a12f437388a97a533bb9eef9",
+                "name": "admin"
+            },
+            "region_name": "regionOne",
+            "zone": "nova"
+        },
+        "locked": false,
+        "max_count": null,
+        "metadata": {
+            " deployment_name": "dev",
+            "group": "database_servers"
+        },
+        "min_count": null,
+        "name": "db",
+        "networks": {},
+        "os-extended-volumes:volumes_attached": [],
+        "personality": null,
+        "power_state": 1,
+        "private_v4": "172.16.0.41",
+        "progress": 0,
+        "project_id": "4e07f423a12f437388a97a533bb9eef9",
+        "properties": {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:hostname": "db",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:instance_name": "instance-00000002",
+            "OS-EXT-SRV-ATTR:kernel_id": "",
+            "OS-EXT-SRV-ATTR:launch_index": 0,
+            "OS-EXT-SRV-ATTR:ramdisk_id": "",
+            "OS-EXT-SRV-ATTR:reservation_id": "r-h47ou9nm",
+            "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+            "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "OS-EXT-STS:power_state": 1,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "active",
+            "OS-SCH-HNT:scheduler_hints": null,
+            "OS-SRV-USG:launched_at": "2021-07-28T20:43:54.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "host_status": "UP",
+            "locked": false,
+            "max_count": null,
+            "min_count": null,
+            "os-extended-volumes:volumes_attached": [],
+            "trusted_image_certificates": null
+        },
+        "public_v4": "192.0.2.159",
+        "public_v6": "",
+        "ramdisk_id": "",
+        "region": "regionOne",
+        "reservation_id": "r-h47ou9nm",
+        "root_device_name": "/dev/vda",
+        "scheduler_hints": null,
+        "security_groups": [
+            {
+                "description": "ports_open",
+                "id": "1f113939-c5f1-4141-b700-e5632a6e1816",
+                "location": {
+                    "cloud": "openstack",
+                    "project": {
+                        "domain_id": null,
+                        "domain_name": null,
+                        "id": "4e07f423a12f437388a97a533bb9eef9",
+                        "name": "admin"
+                    },
+                    "region_name": "regionOne",
+                    "zone": null
+                },
+                "name": "db",
+                "project_id": "4e07f423a12f437388a97a533bb9eef9",
+                "properties": {},
+                "security_group_rules": [
+                    {
+                        "direction": "ingress",
+                        "ethertype": "IPv4",
+                        "group": {},
+                        "id": "29b5354a-913d-4d96-a2d0-507c8986bf08",
+                        "location": {
+                            "cloud": "openstack",
+                            "project": {
+                                "domain_id": null,
+                                "domain_name": null,
+                                "id": "4e07f423a12f437388a97a533bb9eef9",
+                                "name": "admin"
+                            },
+                            "region_name": "regionOne",
+                            "zone": null
+                        },
+                        "port_range_max": 5432,
+                        "port_range_min": 5432,
+                        "project_id": "",
+                        "properties": {
+                            "group": {}
+                        },
+                        "protocol": "tcp",
+                        "remote_group_id": null,
+                        "remote_ip_prefix": "0.0.0.0/0",
+                        "security_group_id": "1f113939-c5f1-4141-b700-e5632a6e1816",
+                        "tenant_id": ""
+                    },
+                    {
+                        "direction": "ingress",
+                        "ethertype": "IPv4",
+                        "group": {},
+                        "id": "e58e0c3a-9c6e-4edd-8ae8-99382c1661fb",
+                        "location": {
+                            "cloud": "openstack",
+                            "project": {
+                                "domain_id": null,
+                                "domain_name": null,
+                                "id": "4e07f423a12f437388a97a533bb9eef9",
+                                "name": "admin"
+                            },
+                            "region_name": "regionOne",
+                            "zone": null
+                        },
+                        "port_range_max": 22,
+                        "port_range_min": 22,
+                        "project_id": "",
+                        "properties": {
+                            "group": {}
+                        },
+                        "protocol": "tcp",
+                        "remote_group_id": null,
+                        "remote_ip_prefix": "0.0.0.0/0",
+                        "security_group_id": "1f113939-c5f1-4141-b700-e5632a6e1816",
+                        "tenant_id": ""
+                    }
+                ],
+                "stateful": true,
+                "tenant_id": "4e07f423a12f437388a97a533bb9eef9"
+            }
+        ],
+        "server_groups": null,
+        "status": "ACTIVE",
+        "tags": [],
+        "task_state": null,
+        "tenant_id": "4e07f423a12f437388a97a533bb9eef9",
+        "terminated_at": null,
+        "trusted_image_certificates": null,
+        "updated": "2021-07-28T20:43:54Z",
+        "user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "user_id": "407c91c92264417aaec09d86164807fd",
+        "vm_state": "active",
+        "volumes": []
+    },
+    "server": {
+        "OS-DCF:diskConfig": "MANUAL",
+        "OS-EXT-AZ:availability_zone": "nova",
+        "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+        "OS-EXT-SRV-ATTR:hostname": "db",
+        "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+        "OS-EXT-SRV-ATTR:instance_name": "instance-00000002",
+        "OS-EXT-SRV-ATTR:kernel_id": "",
+        "OS-EXT-SRV-ATTR:launch_index": 0,
+        "OS-EXT-SRV-ATTR:ramdisk_id": "",
+        "OS-EXT-SRV-ATTR:reservation_id": "r-h47ou9nm",
+        "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+        "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "OS-EXT-STS:power_state": 1,
+        "OS-EXT-STS:task_state": null,
+        "OS-EXT-STS:vm_state": "active",
+        "OS-SCH-HNT:scheduler_hints": null,
+        "OS-SRV-USG:launched_at": "2021-07-28T20:43:54.000000",
+        "OS-SRV-USG:terminated_at": null,
+        "accessIPv4": "192.0.2.159",
+        "accessIPv6": "",
+        "addresses": {
+            "int_network": [
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:ad:d7:34",
+                    "OS-EXT-IPS:type": "fixed",
+                    "addr": "172.16.0.41",
+                    "version": 4
+                },
+                {
+                    "OS-EXT-IPS-MAC:mac_addr": "fa:16:3e:ad:d7:34",
+                    "OS-EXT-IPS:type": "floating",
+                    "addr": "192.0.2.159",
+                    "version": 4
+                }
+            ]
+        },
+        "adminPass": null,
+        "az": "nova",
+        "block_device_mapping": null,
+        "cloud": "openstack",
+        "config_drive": "",
+        "created": "2021-07-28T20:43:38Z",
+        "created_at": "2021-07-28T20:43:38Z",
+        "description": "db",
+        "disk_config": "MANUAL",
+        "flavor": {
+            "disk": 20,
+            "ephemeral": 0,
+            "extra_specs": {},
+            "name": "m2.medium",
+            "original_name": "m2.medium",
+            "ram": 2048,
+            "swap": 0,
+            "vcpus": 2
+        },
+        "has_config_drive": false,
+        "host": "overcloud-novacompute-0.localdomain",
+        "hostId": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+        "host_id": "9b2d831f7eb0f6d381a3bd32f794e44fb5d59412a9a2f847537c5fbf",
+        "host_status": "UP",
+        "hostname": "db",
+        "hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+        "id": "1a5fedec-cb14-4b6a-8673-414caedcc7ba",
+        "image": {
+            "id": "5b53d35f-cd28-4646-9e6e-82d58971f7e0",
+            "name": "rhel-7.6"
+        },
+        "instance_name": "instance-00000002",
+        "interface_ip": "192.0.2.159",
+        "kernel_id": "",
+        "key_name": "ansible_ssh_key",
+        "launch_index": 0,
+        "launched_at": "2021-07-28T20:43:54.000000",
+        "location": {
+            "cloud": "openstack",
+            "project": {
+                "domain_id": null,
+                "domain_name": null,
+                "id": "4e07f423a12f437388a97a533bb9eef9",
+                "name": "admin"
+            },
+            "region_name": "regionOne",
+            "zone": "nova"
+        },
+        "locked": false,
+        "max_count": null,
+        "metadata": {
+            " deployment_name": "dev",
+            "group": "database_servers"
+        },
+        "min_count": null,
+        "name": "db",
+        "networks": {},
+        "os-extended-volumes:volumes_attached": [],
+        "personality": null,
+        "power_state": 1,
+        "private_v4": "172.16.0.41",
+        "progress": 0,
+        "project_id": "4e07f423a12f437388a97a533bb9eef9",
+        "properties": {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:hostname": "db",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "overcloud-novacompute-0.localdomain",
+            "OS-EXT-SRV-ATTR:instance_name": "instance-00000002",
+            "OS-EXT-SRV-ATTR:kernel_id": "",
+            "OS-EXT-SRV-ATTR:launch_index": 0,
+            "OS-EXT-SRV-ATTR:ramdisk_id": "",
+            "OS-EXT-SRV-ATTR:reservation_id": "r-h47ou9nm",
+            "OS-EXT-SRV-ATTR:root_device_name": "/dev/vda",
+            "OS-EXT-SRV-ATTR:user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+            "OS-EXT-STS:power_state": 1,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "active",
+            "OS-SCH-HNT:scheduler_hints": null,
+            "OS-SRV-USG:launched_at": "2021-07-28T20:43:54.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "host_status": "UP",
+            "locked": false,
+            "max_count": null,
+            "min_count": null,
+            "os-extended-volumes:volumes_attached": [],
+            "trusted_image_certificates": null
+        },
+        "public_v4": "192.0.2.159",
+        "public_v6": "",
+        "ramdisk_id": "",
+        "region": "regionOne",
+        "reservation_id": "r-h47ou9nm",
+        "root_device_name": "/dev/vda",
+        "scheduler_hints": null,
+        "security_groups": [
+            {
+                "description": "ports_open",
+                "id": "1f113939-c5f1-4141-b700-e5632a6e1816",
+                "location": {
+                    "cloud": "openstack",
+                    "project": {
+                        "domain_id": null,
+                        "domain_name": null,
+                        "id": "4e07f423a12f437388a97a533bb9eef9",
+                        "name": "admin"
+                    },
+                    "region_name": "regionOne",
+                    "zone": null
+                },
+                "name": "db",
+                "project_id": "4e07f423a12f437388a97a533bb9eef9",
+                "properties": {},
+                "security_group_rules": [
+                    {
+                        "direction": "ingress",
+                        "ethertype": "IPv4",
+                        "group": {},
+                        "id": "29b5354a-913d-4d96-a2d0-507c8986bf08",
+                        "location": {
+                            "cloud": "openstack",
+                            "project": {
+                                "domain_id": null,
+                                "domain_name": null,
+                                "id": "4e07f423a12f437388a97a533bb9eef9",
+                                "name": "admin"
+                            },
+                            "region_name": "regionOne",
+                            "zone": null
+                        },
+                        "port_range_max": 5432,
+                        "port_range_min": 5432,
+                        "project_id": "",
+                        "properties": {
+                            "group": {}
+                        },
+                        "protocol": "tcp",
+                        "remote_group_id": null,
+                        "remote_ip_prefix": "0.0.0.0/0",
+                        "security_group_id": "1f113939-c5f1-4141-b700-e5632a6e1816",
+                        "tenant_id": ""
+                    },
+                    {
+                        "direction": "ingress",
+                        "ethertype": "IPv4",
+                        "group": {},
+                        "id": "e58e0c3a-9c6e-4edd-8ae8-99382c1661fb",
+                        "location": {
+                            "cloud": "openstack",
+                            "project": {
+                                "domain_id": null,
+                                "domain_name": null,
+                                "id": "4e07f423a12f437388a97a533bb9eef9",
+                                "name": "admin"
+                            },
+                            "region_name": "regionOne",
+                            "zone": null
+                        },
+                        "port_range_max": 22,
+                        "port_range_min": 22,
+                        "project_id": "",
+                        "properties": {
+                            "group": {}
+                        },
+                        "protocol": "tcp",
+                        "remote_group_id": null,
+                        "remote_ip_prefix": "0.0.0.0/0",
+                        "security_group_id": "1f113939-c5f1-4141-b700-e5632a6e1816",
+                        "tenant_id": ""
+                    }
+                ],
+                "stateful": true,
+                "tenant_id": "4e07f423a12f437388a97a533bb9eef9"
+            }
+        ],
+        "server_groups": null,
+        "status": "ACTIVE",
+        "tags": [],
+        "task_state": null,
+        "tenant_id": "4e07f423a12f437388a97a533bb9eef9",
+        "terminated_at": null,
+        "trusted_image_certificates": null,
+        "updated": "2021-07-28T20:43:54Z",
+        "user_data": "IyEvYmluL2Jhc2gKY3VybCAtbyAvdG1wL29wZW5zdGFjay5wdWIgaHR0cDovL3d3dy5vcGVudGxjLmNvbS9kb3dubG9hZC9hbnNpYmxlX2Jvb3RjYW1wL29wZW5zdGFja19rZXlzL29wZW5zdGFjay5wdWIKY2F0IC90bXAvb3BlbnN0YWNrLnB1YiA+PiAvaG9tZS9jbG91ZC11c2VyLy5zc2gvYXV0aG9yaXplZF9rZXlzCg==",
+        "user_id": "407c91c92264417aaec09d86164807fd",
+        "vm_state": "active",
+        "volumes": []
+    }
+}
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/cbeaver-redhat.com/.ansible/tmp `"&& mkdir "` echo /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505784.8229787-8986-4657749180190 `" && echo ansible-tmp-1627505784.8229787-8986-4657749180190="` echo /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505784.8229787-8986-4657749180190 `" ) && sleep 0'
+redirecting (type: modules) ansible.builtin.os_server to openstack.cloud.server
+Using module file /home/cbeaver-redhat.com/openstack-venv/lib64/python3.6/site-packages/ansible_collections/openstack/cloud/plugins/modules/server.py
+<localhost> PUT /home/cbeaver-redhat.com/.ansible/tmp/ansible-local-8977chealu4f/tmplc6b_yov TO /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505784.8229787-8986-4657749180190/AnsiballZ_server.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505784.8229787-8986-4657749180190/ /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505784.8229787-8986-4657749180190/AnsiballZ_server.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/env python3 /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505784.8229787-8986-4657749180190/AnsiballZ_server.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /home/cbeaver-redhat.com/.ansible/tmp/ansible-tmp-1627505784.8229787-8986-4657749180190/ > /dev/null 2>&1 && sleep 0'
+failed: [localhost] (item={'instance_name': 'frontend1', 'group': 'load_balancers', 'deployment': 'dev', 'security_group_name': 'frontend', 'image': 'rhel-7.6', 'meta': 'group=load_balancers, deployment_name=dev'}) => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "api_timeout": null,
+            "auth": null,
+            "auth_type": null,
+            "auto_ip": true,
+            "availability_zone": null,
+            "boot_from_volume": false,
+            "boot_volume": null,
+            "ca_cert": null,
+            "client_cert": null,
+            "client_key": null,
+            "config_drive": false,
+            "delete_fip": true,
+            "description": null,
+            "flavor": "m2.medium",
+            "flavor_include": null,
+            "flavor_ram": null,
+            "floating_ip_pools": null,
+            "floating_ips": null,
+            "image": "rhel-7.6",
+            "image_exclude": "(deprecated)",
+            "interface": "public",
+            "key_name": "ansible_ssh_key",
+            "meta": "group=load_balancers, deployment_name=dev",
+            "name": "frontend1",
+            "network": null,
+            "nics": [
+                {
+                    "net-name": "int_network"
+                }
+            ],
+            "region_name": null,
+            "reuse_ips": true,
+            "scheduler_hints": null,
+            "security_groups": [
+                "frontend"
+            ],
+            "state": "present",
+            "terminate_volume": false,
+            "timeout": 180,
+            "userdata": "#!/bin/bash\ncurl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub\ncat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys\n",
+            "validate_certs": null,
+            "volume_size": null,
+            "volumes": [],
+            "wait": false
+        }
+    },
+    "item": {
+        "deployment": "dev",
+        "group": "load_balancers",
+        "image": "rhel-7.6",
+        "instance_name": "frontend1",
+        "meta": "group=load_balancers, deployment_name=dev",
+        "security_group_name": "frontend"
+    },
+    "msg": "The instance is available but not Active state: ERROR"
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+Playbook run took 0 days, 0 hours, 0 minutes, 11 seconds
+Wednesday 28 July 2021  16:56:27 -0400 (0:00:11.676)       0:00:11.703 ******** 
+=============================================================================== 
+tok.openstack.openstack_manage_servers : Create instances -------------- 11.68s
+/home/cbeaver-redhat.com/ansible_advanced_openstack_infra/collections/ansible_collections/tok/openstack/roles/openstack_manage_servers/tasks/main.yml:2 
